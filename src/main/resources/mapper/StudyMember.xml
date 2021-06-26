@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kstudy.repository.mybatis.StudyMemberMapper">
+
+	<select id="selectAll" resultType="StudyMember">
+		SELECT  MEMBER_SEQ ,
+				MEMBER_NAME,
+				JOIN_DATE  ,
+				MEMBER_JOB ,
+				CREATED_AT ,
+				UPDATED_AT
+		FROM    STUDY_MEMBER S
+	</select>
+
+	<select id="selectMemberBySeq" parameterType="int" resultType="StudyMember">
+		SELECT  MEMBER_NAME,
+				JOIN_DATE  ,
+				MEMBER_JOB ,
+				CREATED_AT ,
+				UPDATED_AT
+		FROM    STUDY_MEMBER S
+		WHERE   S.MEMBER_SEQ = #{memberSeq}
+	</select>
+
+</mapper>
